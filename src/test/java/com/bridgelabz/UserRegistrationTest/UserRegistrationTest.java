@@ -77,4 +77,18 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.checkEmailAddress("akashgupta3852@gmail..com");
 		Assert.assertEquals(false,result);
 	}
+	
+	@Test
+	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkMobileNumber("91 9559473852");
+		Assert.assertEquals(true,result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenNotProper_ShouldReturnFalse() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkMobileNumber("91 955947385");
+		Assert.assertEquals(false,result);
+	}
 }
