@@ -95,24 +95,22 @@ public class UserRegistrationTest {
 	@Test
 	public void givenPassword_WhenProper_ShouldReturnTrue() {
 		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkPassword("A1235678@332asfgdhadg");
+		boolean result = userRegistration.checkPassword("AbcKfghw8asfgdh$%adg@!");
 		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenPassword_WhenShort_ShouldReturnFalse() {
 		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkMobileNumber("1234567");
+		boolean result = userRegistration.checkPassword("Abc@$67");
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenPassword_WhenNotProper_ShouldReturnFalse() {
 		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkMobileNumber("456abcd123#");
+		boolean result = userRegistration.checkPassword("Aab%^cdHI@#");
 		Assert.assertEquals(false,result);
 	}
 
-	
-	
 }

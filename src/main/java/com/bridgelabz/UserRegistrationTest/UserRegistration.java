@@ -10,6 +10,7 @@ public class UserRegistration
 	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
 	private static final String PASSWORD_PATTERN=".{8,}";
 	private static final String PASSWORD_PATTERN1="[A-Z]";
+	private static final String PASSWORD_PATTERN2="[0-9]";
 	
     public void printWelcome()
     {
@@ -39,8 +40,10 @@ public class UserRegistration
     public boolean checkPassword(String password) {
     	Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
     	Pattern pattern1 = Pattern.compile(PASSWORD_PATTERN1);
+    	Pattern pattern2 = Pattern.compile(PASSWORD_PATTERN2);
     	if(pattern.matcher(password).matches())
     		if(pattern1.matcher(password).find())
+        		if(pattern2.matcher(password).find())
     				return true;
     	return false;
     }
