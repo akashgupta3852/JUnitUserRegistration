@@ -102,7 +102,7 @@ public class UserRegistrationTest {
 	@Test
 	public void givenPassword_WhenShort_ShouldReturnFalse() {
 		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkMobileNumber("1234");
+		boolean result = userRegistration.checkPassword("1234");
 		Assert.assertEquals(false,result);
 	}
 }
