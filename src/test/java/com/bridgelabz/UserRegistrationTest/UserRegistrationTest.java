@@ -63,4 +63,18 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.checkLastName("Gupta123");
 		Assert.assertEquals(false,result);
 	}	
+	
+	@Test
+	public void givenEmailAddress_WhenProper_ShouldReturnTrue() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkEmailAddress("akashgupta3852@gmail.com");
+		Assert.assertEquals(true,result);
+	}
+	
+	@Test
+	public void givenEmailAddress_WhenNotProper_ShouldReturnFalse() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkEmailAddress("akashgupta3852@gmail..com");
+		Assert.assertEquals(false,result);
+	}
 }
