@@ -8,6 +8,7 @@ public class UserRegistration
 	private static final String LAST_NAME_PATTERN="^[A-Z][a-z]{2,}";
 	private static final String EMAIL_ADDRESS_PATTERN="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
+	private static final String PASSWORD_PATTERN=".{8,}";
 	
     public void printWelcome()
     {
@@ -32,6 +33,11 @@ public class UserRegistration
     public boolean checkMobileNumber(String mobileNumber) {
     	Pattern pattern = Pattern.compile(MOBILE_NUMBER_PATTERN);
     	return pattern.matcher(mobileNumber).matches();
+    }
+    
+    public boolean checkPassword(String password) {
+    	Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+    	return pattern.matcher(password).matches();
     }
     
 }

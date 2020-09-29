@@ -91,4 +91,18 @@ public class UserRegistrationTest {
 		boolean result = userRegistration.checkMobileNumber("91 955947385");
 		Assert.assertEquals(false,result);
 	}
+	
+	@Test
+	public void givenPassword_WhenProper_ShouldReturnTrue() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkPassword("123456789");
+		Assert.assertEquals(true,result);
+	}
+	
+	@Test
+	public void givenPassword_WhenShort_ShouldReturnFalse() {
+		UserRegistration userRegistration =  new UserRegistration();
+		boolean result = userRegistration.checkMobileNumber("1234");
+		Assert.assertEquals(false,result);
+	}
 }
