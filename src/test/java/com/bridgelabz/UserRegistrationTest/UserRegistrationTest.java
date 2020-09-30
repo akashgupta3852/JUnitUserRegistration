@@ -10,146 +10,106 @@ public class UserRegistrationTest {
 	
 	@Test
 	public void givenFirstName_WhenProper_ShouldReturnTrue() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkFirstName("Akash");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkFirstName(userRegistration.firstName);
 		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenFirstName_WhenWithSpChars_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkFirstName("Ak@sh");
+		UserRegistration userRegistration =  new UserRegistration("Ak@sh","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkFirstName(userRegistration.firstName);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenFirstName_WhenShort_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkFirstName("Ak");
+		UserRegistration userRegistration =  new UserRegistration("Ak","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkFirstName(userRegistration.firstName);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenFirstName_WhenWithNumericChars_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkFirstName("Akash123");
+		UserRegistration userRegistration =  new UserRegistration("Akash123","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkFirstName(userRegistration.firstName);
 		Assert.assertEquals(false,result);
 	}	
 	
 	@Test
 	public void givenLastName_WhenProper_ShouldReturnTrue() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkLastName("Gupta");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkLastName(userRegistration.lastName);
 		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenLastName_WhenWithSpChars_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkLastName("Gupt@");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupt@","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkLastName(userRegistration.lastName);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenLastName_WhenShort_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkLastName("Gu");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gu","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkLastName(userRegistration.lastName);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenLastName_WhenWithNumericChars_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkLastName("Gupta123");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta123","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkLastName(userRegistration.lastName);
 		Assert.assertEquals(false,result);
 	}	
 	
 	@Test
 	public void givenEmailAddress_WhenProper_ShouldReturnTrue() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result1 = userRegistration.checkEmailAddress("abc@yahoo.com");
-		boolean result2 = userRegistration.checkEmailAddress("abc-100@yahoo.com");
-		boolean result3 = userRegistration.checkEmailAddress("abc.100@yahoo.com");
-		boolean result4 = userRegistration.checkEmailAddress("abc111@abc.com");
-		boolean result5 = userRegistration.checkEmailAddress("abc-100@abc.net");
-		boolean result6 = userRegistration.checkEmailAddress("abc.100@abc.com.au");
-		boolean result7 = userRegistration.checkEmailAddress("abc@gmail.com.com");
-		boolean result8 = userRegistration.checkEmailAddress("abc@1.com");
-		boolean result9 = userRegistration.checkEmailAddress("abc+100@gmail.com");
-		Assert.assertEquals(true,result1);
-		Assert.assertEquals(true,result2);
-		Assert.assertEquals(true,result3);
-		Assert.assertEquals(true,result4);
-		Assert.assertEquals(true,result5);
-		Assert.assertEquals(true,result6);
-		Assert.assertEquals(true,result7);
-		Assert.assertEquals(true,result8);
-		Assert.assertEquals(true,result9);
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkEmailAddress(userRegistration.emailId);
+		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenEmailAddress_WhenNotProper_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result1 = userRegistration.checkEmailAddress("abc");
-		boolean result2 = userRegistration.checkEmailAddress("abc@.com.my");
-		boolean result3 = userRegistration.checkEmailAddress("abc123@gmail.a");
-		boolean result4 = userRegistration.checkEmailAddress("abc123@.com");
-		boolean result5 = userRegistration.checkEmailAddress("abc123@.com.com");
-		boolean result6 = userRegistration.checkEmailAddress(".abc@abc.com");
-		boolean result7 = userRegistration.checkEmailAddress("abc()*@gmail.com");
-		boolean result8 = userRegistration.checkEmailAddress("abc@%*.com");
-		boolean result9 = userRegistration.checkEmailAddress("abc..2002@gmail.com");
-		boolean result10 = userRegistration.checkEmailAddress("abc.@gmail.com");
-		boolean result11 = userRegistration.checkEmailAddress("abc@abc@gmail.com");
-		boolean result12 = userRegistration.checkEmailAddress("abc@gmail.com.1a");
-		boolean result13 = userRegistration.checkEmailAddress("abc@gmail.com.aa.au");
-		Assert.assertEquals(false,result1);
-		Assert.assertEquals(false,result2);
-		Assert.assertEquals(false,result3);
-		Assert.assertEquals(false,result4);
-		Assert.assertEquals(false,result5);
-		Assert.assertEquals(false,result6);
-		Assert.assertEquals(false,result7);
-		Assert.assertEquals(false,result8);
-		Assert.assertEquals(false,result9);
-		Assert.assertEquals(false,result10);
-		Assert.assertEquals(false,result11);
-		Assert.assertEquals(false,result12);
-		Assert.assertEquals(false,result13);
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail..com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkEmailAddress(userRegistration.emailId);
+		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkMobileNumber("91 9559473852");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","AS@#A7123");
+		boolean result = userRegistration.checkMobileNumber(userRegistration.mobileNum);
 		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenMobileNumber_WhenNotProper_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkMobileNumber("91 955947385");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 955947385","AS@#A7123");
+		boolean result = userRegistration.checkMobileNumber(userRegistration.mobileNum);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenPassword_WhenProper_ShouldReturnTrue() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkPassword("AbZWcKfghw854asfgdh@");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","AbZWcKfghw854asfgdh@");
+		boolean result = userRegistration.checkPassword(userRegistration.password);
 		Assert.assertEquals(true,result);
 	}
 	
 	@Test
 	public void givenPassword_WhenShort_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkPassword("Abch$67");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","Abch$67");
+		boolean result = userRegistration.checkPassword(userRegistration.password);
 		Assert.assertEquals(false,result);
 	}
 	
 	@Test
 	public void givenPassword_WhenNotProper_ShouldReturnFalse() {
-		UserRegistration userRegistration =  new UserRegistration();
-		boolean result = userRegistration.checkPassword("13213HGGSAabcdHIdffgh");
+		UserRegistration userRegistration =  new UserRegistration("Akash","Gupta","akashgupta3852@gmail.com","91 9559473852","13213HGGSAabcdHIdffgh");
+		boolean result = userRegistration.checkPassword(userRegistration.password);
 		Assert.assertEquals(false,result);
 	}
 

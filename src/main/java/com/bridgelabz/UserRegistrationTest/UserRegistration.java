@@ -2,8 +2,17 @@ package com.bridgelabz.UserRegistrationTest;
 
 import java.util.regex.Pattern;
 
-public class UserRegistration 
-{
+public class UserRegistration {
+	public String firstName,lastName,emailId,mobileNum,password;
+	
+	public UserRegistration(String firstName, String lastName, String emailId, String mobileNum, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailId = emailId;
+		this.mobileNum = mobileNum;
+		this.password = password;
+	}
+
 	private static final String FIRST_NAME_PATTERN="^[A-Z][a-z]{2,}";
 	private static final String LAST_NAME_PATTERN="^[A-Z][a-z]{2,}";
 	private static final String EMAIL_ADDRESS_PATTERN="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
