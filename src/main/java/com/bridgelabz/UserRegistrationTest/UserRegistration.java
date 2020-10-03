@@ -21,10 +21,7 @@ public class UserRegistration {
 	private static final String LAST_NAME_PATTERN="^[A-Z][a-z]{2,}";
 	private static final String EMAIL_ADDRESS_PATTERN="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
-	private static final String PASSWORD_PATTERN=".{8,}";
-	private static final String PASSWORD_PATTERN1="[A-Z]";
-	private static final String PASSWORD_PATTERN2="[0-9]";
-	private static final String PASSWORD_PATTERN3="\\W";
+	private static final String PASSWORD_PATTERN="(?=.*[A-Z])(?=.*[0-9])(?=.*[\\W]).{8,}";
 	
     public void printWelcome()
     {
@@ -53,14 +50,8 @@ public class UserRegistration {
     
     public boolean checkPassword(String password) {
     	Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
-    	Pattern pattern1 = Pattern.compile(PASSWORD_PATTERN1);
-    	Pattern pattern2 = Pattern.compile(PASSWORD_PATTERN2);
-    	Pattern pattern3 = Pattern.compile(PASSWORD_PATTERN3);
     	if(pattern.matcher(password).matches())
-    		if(pattern1.matcher(password).find())
-        		if(pattern2.matcher(password).find())
-            		if(pattern3.matcher(password).find())
-    				return true;
+    		return true;
     	return false;
     }
     
