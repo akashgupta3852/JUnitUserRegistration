@@ -17,8 +17,7 @@ public class UserRegistration {
 		this.password = password;
 	}
 
-	private static final String FIRST_NAME_PATTERN="^[A-Z][a-z]{2,}";
-	private static final String LAST_NAME_PATTERN="^[A-Z][a-z]{2,}";
+	private static final String NAME_PATTERN="^[A-Z][a-z]{2,}";
 	private static final String EMAIL_ADDRESS_PATTERN="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
 	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
 	private static final String PASSWORD_PATTERN="(?=.*[A-Z])(?=.*[0-9])(?=.*[\\W]).{8,}";
@@ -29,12 +28,12 @@ public class UserRegistration {
     }
     
     public boolean checkFirstName(String fName) {
-    	Pattern pattern = Pattern.compile(FIRST_NAME_PATTERN);
+    	Pattern pattern = Pattern.compile(NAME_PATTERN);
     	return pattern.matcher(fName).matches();
     }
     
     public boolean checkLastName(String lName) {
-    	Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
+    	Pattern pattern = Pattern.compile(NAME_PATTERN);
     	return pattern.matcher(lName).matches();
     }
     
